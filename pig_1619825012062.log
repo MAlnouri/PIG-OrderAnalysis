@@ -1,0 +1,31 @@
+Pig Stack Trace
+---------------
+ERROR 1066: Unable to open iterator for alias F
+
+org.apache.pig.impl.logicalLayer.FrontendException: ERROR 1066: Unable to open iterator for alias F
+	at org.apache.pig.PigServer.openIterator(PigServer.java:1019)
+	at org.apache.pig.tools.grunt.GruntParser.processDump(GruntParser.java:747)
+	at org.apache.pig.tools.pigscript.parser.PigScriptParser.parse(PigScriptParser.java:376)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:231)
+	at org.apache.pig.tools.grunt.GruntParser.parseStopOnError(GruntParser.java:206)
+	at org.apache.pig.tools.grunt.Grunt.exec(Grunt.java:81)
+	at org.apache.pig.Main.run(Main.java:630)
+	at org.apache.pig.Main.main(Main.java:176)
+Caused by: java.lang.NullPointerException
+	at org.apache.pig.newplan.logical.visitor.ScalarVisitor$1.visit(ScalarVisitor.java:67)
+	at org.apache.pig.newplan.logical.expression.ScalarExpression.accept(ScalarExpression.java:109)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visitAll(AllExpressionVisitor.java:72)
+	at org.apache.pig.newplan.logical.optimizer.AllExpressionVisitor.visit(AllExpressionVisitor.java:161)
+	at org.apache.pig.newplan.logical.relational.LOSort.accept(LOSort.java:121)
+	at org.apache.pig.newplan.DependencyOrderWalker.walk(DependencyOrderWalker.java:75)
+	at org.apache.pig.newplan.PlanVisitor.visit(PlanVisitor.java:52)
+	at org.apache.pig.newplan.logical.relational.LogicalPlan.validate(LogicalPlan.java:177)
+	at org.apache.pig.PigServer$Graph.compile(PigServer.java:1851)
+	at org.apache.pig.PigServer$Graph.access$300(PigServer.java:1527)
+	at org.apache.pig.PigServer.storeEx(PigServer.java:1117)
+	at org.apache.pig.PigServer.store(PigServer.java:1081)
+	at org.apache.pig.PigServer.openIterator(PigServer.java:994)
+	... 7 more
+================================================================================
