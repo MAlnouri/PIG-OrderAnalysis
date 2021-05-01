@@ -12,7 +12,7 @@ C = GROUP B by hourPurch;
 D = FOREACH C GENERATE group, COUNT(B) as Hour;
 
 --orders the hours by highest number of sales
-E = ORDER D BY Hour DESC;
+E = ORDER D BY Hour ASC;
 
 --picks top 5 highest selling hours
 F = LIMIT E 5;
